@@ -1,4 +1,4 @@
-name: Get Key
+name: Update Provider
 
 on:
   workflow_dispatch:
