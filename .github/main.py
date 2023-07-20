@@ -20,7 +20,6 @@ for main, sub in dict(calls).items():
     subext = tldextract.extract(sub)
     if checkext.registered_domain == subext.registered_domain:
         print(f"Checked: {main}")
-        pass
     else:
         if checkext.subdomain:
             updatedurl = "https://" + checkext.subdomain + "." + checkext.registered_domain
