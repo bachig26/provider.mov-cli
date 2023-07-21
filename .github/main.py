@@ -5,7 +5,7 @@ DEFAULT_HEADERS: dict = {
     "Accept-Language": "en-GB,en;q=0.5",
 }
 
-from httpx import get
+from httpx import get, ReadTimeout
 import json
 import tldextract
 calls = json.loads(open("provider.mov-cli").read())
@@ -14,7 +14,7 @@ for main, sub in dict(calls).items():
         continue
     try:
         check = get(sub, follow_redirects=True, headers=DEFAULT_HEADERS, timeout=10)
-    except TimeoutError:
+    except ReadTimeout:
         continue
     checkext = tldextract.extract(str(check.url))
     subext = tldextract.extract(sub)
