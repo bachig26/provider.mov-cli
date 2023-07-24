@@ -14,7 +14,7 @@ for main, sub in dict(calls).items():
         continue
     try:
         check = get(sub, follow_redirects=True, headers=DEFAULT_HEADERS, timeout=10)
-    except ReadTimeout:
+    except:
         continue
     checkext = tldextract.extract(str(check.url))
     subext = tldextract.extract(sub)
